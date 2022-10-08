@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI debugText = null;
     public void StartHost()
     {
         if (NetworkManager.Singleton.StartHost())
         {
-            print("Host started");
+            debugText.text = "Host started";
         }
         else
         {
-            print("Host failed to Start");
+            debugText.text = "Host failed to Start";
         }
     }
 
@@ -21,11 +23,11 @@ public class UIManager : MonoBehaviour
     {
         if (NetworkManager.Singleton.StartServer())
         {
-            print("Server started");
+            debugText.text = "Server started";
         }
         else
         {
-            print("Server failed to Start");
+            debugText.text = "Server failed to Start";
         }
     }
 
@@ -33,11 +35,11 @@ public class UIManager : MonoBehaviour
     {
         if (NetworkManager.Singleton.StartClient())
         {
-            print("Client started");
+            debugText.text = "Client started";
         }
         else
         {
-            print("Client failed to Start");
+            debugText.text = "Client failed to Start";
         }
     }
 }
